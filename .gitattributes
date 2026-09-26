@@ -1,0 +1,25 @@
+# Enforce LF for text files, auto-detect binary files
+* text=auto
+
+# Code source VB.NET et configurations Visual Studio (CRLF obligatoire pour Windows)
+*.vb text eol=crlf linguist-language=VB.NET
+*.sln text eol=crlf
+*.vbproj text eol=xml
+*.config text eol=xml
+*.resx text eol=xml
+*.settings text eol=xml
+*.myapp text eol=xml
+
+# Documentation et scripts
+*.md text eol=lf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# Fichiers binaires (images, icônes) à ne jamais corrompre par des conversions de texte
+*.ico binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.dll binary
+*.exe binary
