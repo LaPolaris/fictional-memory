@@ -30,6 +30,7 @@ Partial Class FrmPrincipal
         Me.BtnExporter = New System.Windows.Forms.Button()
         Me.BtnMaintenance = New System.Windows.Forms.Button()
         Me.TmrLecture = New System.Windows.Forms.Timer(Me.components)
+        Me.LblPressionMax = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'LblTitre
@@ -38,7 +39,7 @@ Partial Class FrmPrincipal
         Me.LblTitre.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold)
         Me.LblTitre.Location = New System.Drawing.Point(20, 15)
         Me.LblTitre.Name = "LblTitre"
-        Me.LblTitre.Size = New System.Drawing.Size(230, 21)
+        Me.LblTitre.Size = New System.Drawing.Size(308, 28)
         Me.LblTitre.TabIndex = 0
         Me.LblTitre.Text = "Supervision presse hydraulique"
         '
@@ -48,7 +49,7 @@ Partial Class FrmPrincipal
         Me.LblPression.Font = New System.Drawing.Font("Segoe UI", 20.0!)
         Me.LblPression.Location = New System.Drawing.Point(20, 50)
         Me.LblPression.Name = "LblPression"
-        Me.LblPression.Size = New System.Drawing.Size(80, 37)
+        Me.LblPression.Size = New System.Drawing.Size(106, 46)
         Me.LblPression.TabIndex = 1
         Me.LblPression.Text = "-- bar"
         '
@@ -57,7 +58,7 @@ Partial Class FrmPrincipal
         Me.LblEtat.AutoSize = True
         Me.LblEtat.Location = New System.Drawing.Point(22, 95)
         Me.LblEtat.Name = "LblEtat"
-        Me.LblEtat.Size = New System.Drawing.Size(70, 15)
+        Me.LblEtat.Size = New System.Drawing.Size(88, 20)
         Me.LblEtat.TabIndex = 2
         Me.LblEtat.Text = "Déconnecté"
         '
@@ -92,11 +93,21 @@ Partial Class FrmPrincipal
         '
         Me.TmrLecture.Interval = 500
         '
+        'LblPressionMax
+        '
+        Me.LblPressionMax.AutoSize = True
+        Me.LblPressionMax.Location = New System.Drawing.Point(229, 70)
+        Me.LblPressionMax.Name = "LblPressionMax"
+        Me.LblPressionMax.Size = New System.Drawing.Size(144, 20)
+        Me.LblPressionMax.TabIndex = 6
+        Me.LblPressionMax.Text = "Pression Max : -- bar"
+        '
         'FrmPrincipal
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(394, 175)
+        Me.Controls.Add(Me.LblPressionMax)
         Me.Controls.Add(Me.BtnMaintenance)
         Me.Controls.Add(Me.BtnExporter)
         Me.Controls.Add(Me.BtnDemarrer)
@@ -121,5 +132,5 @@ Partial Class FrmPrincipal
     Friend WithEvents BtnExporter As System.Windows.Forms.Button
     Friend WithEvents BtnMaintenance As System.Windows.Forms.Button
     Friend WithEvents TmrLecture As System.Windows.Forms.Timer
-
+    Friend WithEvents LblPressionMax As Label
 End Class

@@ -12,12 +12,15 @@ Public Class FrmPrincipal
 
     Private ReadOnly _calcul As New CalculPression(seuilAlarmeBar:=200.0)
     Private ReadOnly _mesures As New List(Of Mesure)
+    Private _pressionMaximale As Double = Double.MinValue
     Private _automate As ConnexionAutomate
 
     Private Sub BtnDemarrer_Click(sender As Object, e As EventArgs) Handles BtnDemarrer.Click
         If _automate Is Nothing Then
             _automate = New ConnexionAutomate(AdresseAutomate, PortAutomate)
             _automate.Connecter()
+            _pressionMaximale = Double.MinValue
+            LblPressionMax.Text = "Pression Max : -- bar"
             TmrLecture.Start()
             BtnDemarrer.Text = "Arrêter"
             LblEtat.Text = $"Connecté à {AdresseAutomate}:{PortAutomate}"
@@ -33,7 +36,10 @@ Public Class FrmPrincipal
     Private Sub TmrLecture_Tick(sender As Object, e As EventArgs) Handles TmrLecture.Tick
         Dim pression = _calcul.ConvertirEnBars(_automate.LireMot(MotCapteurPression))
         _mesures.Add(New Mesure(DateTime.Now, pression))
-
+        If pression > _pressionMaximale Then
+            _pressionMaximale = pression
+            LblPressionMax.Text = $"Pression Max : {_pressionMaximale:0.0} bar"
+        End If
         LblPression.Text = $"{pression:0.0} bar"
         LblPression.ForeColor = If(_calcul.EstEnSurpression(pression), Color.Red, Color.Black)
     End Sub
