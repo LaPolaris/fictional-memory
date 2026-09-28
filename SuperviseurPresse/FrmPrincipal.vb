@@ -49,7 +49,7 @@ Public Class FrmPrincipal
     Private Sub BtnMaintenance_Click(sender As Object, e As EventArgs) Handles BtnMaintenance.Click
         Dim saisie = InputBox("Mot de passe de maintenance :", "Accès maintenance")
         If ControleAcces.AccesMaintenanceAutorise(saisie) Then
-            MessageBox.Show(Me, "Accès maintenance accordé.", "Maintenance")
+            MessageBox.Show(Me, "Accès maintenance est accordé.", "Maintenance")
         Else
             MessageBox.Show(Me, "Mot de passe incorrect.", "Maintenance",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
